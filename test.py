@@ -1,3 +1,3 @@
 test.py
 
-print(clown)
+print('you are clown')
