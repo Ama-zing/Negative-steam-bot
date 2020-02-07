@@ -1,1 +1,1 @@
-bot: TelegrammBot.py
+bot: python3 TelegrammBot.py
