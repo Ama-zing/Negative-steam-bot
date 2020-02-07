@@ -1,19 +1,21 @@
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+import telebot
+TOKEN = '986636286:AAGBmIYMoNmH_4VmWdNLHfBE42vi2VStaz4'
+bot = telebot.TeleBot('986636286:AAGBmIYMoNmH_4VmWdNLHfBE42vi2VStaz4')
 
-updater = Updater(token='986636286:AAGBmIYMoNmH_4VmWdNLHfBE42vi2VStaz4')
-dispatcher = updater.dispatcher
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 import logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     level=logging.INFO)
 
-def start(bot, update):
-	bot.send_message(chat_id=update.message.chat_id, text='Здарова, клоун! Я тупой бот, ничего не умею, как и ты)) KEKW')
+@bot.message_handler(content_types=["text"])
+def handle_text(message):
+	if message.text == "/start":
+		bot.send_message(message.from_user.id, "Здарова, клоун! Я тупой бот, ничего не умею, как и ты)) KEKW")
 
-start_handler = CommandHandler('start', start)
-text_message_handler = MessageHandler(Filters.text, textMessage)
-dispatcher.add_handler(start_handler)
-dispatcher.add_handler(restart_handler)
-dispatcher.add_handler(text_message_handler)
-updater.start_polling(clean=True)
-updater.idle()
+	elif message.text == "/help" or message.text == "help":
+		bot.send_message(message.from_user.id, "1) /start - приветствие")
+
+	else:
+		bot.send_message(message.from_user.id, "Чаво? Ничего не понял. Напиши /help или help, чтобы узнать команды.")
+bot.polling(none_stop=True, interval=0)
