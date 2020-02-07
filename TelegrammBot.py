@@ -2,6 +2,12 @@ import telebot
 TOKEN = '986636286:AAGBmIYMoNmH_4VmWdNLHfBE42vi2VStaz4'
 bot = telebot.TeleBot('986636286:AAGBmIYMoNmH_4VmWdNLHfBE42vi2VStaz4')
 
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+
+import logging
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                    level=logging.INFO)
+
 @bot.message_handler(content_types=["text"])
 def handle_text(message):
 	if message.text == "/start":
