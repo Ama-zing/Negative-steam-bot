@@ -6,4 +6,5 @@ future==0.17.1
 idna==2.8
 pycparser==2.19
 python-telegram-bot==11.1.0
+pyTelegramBotAPI==3.6.4
 six==1.12.0
