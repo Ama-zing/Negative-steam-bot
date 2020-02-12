@@ -4,16 +4,14 @@ import telebot
 TOKEN = '986636286:AAGBmIYMoNmH_4VmWdNLHfBE42vi2VStaz4'
 bot = telebot.TeleBot('986636286:AAGBmIYMoNmH_4VmWdNLHfBE42vi2VStaz4')
 
-# from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
-
-#import logging
-#logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-#                    level=logging.INFO)
+import logging
+logger = telebot.logger
+telebot.logger.setLevel(logging.DEBUG)
 
 @bot.message_handler(commands=['start', 'help'])
 def handle_text(message):
 	if message.text == "/start":
-		bot.send_message(message.from_user.id, "Здарова, клоун! Я тупой бот, ничего не умею, как и ты)) KEKW")
+		bot.send_message(message.from_user.id, "Здарова, клоун! Я тупой бот, но уже даже что-то умею KEKW")
 
 	elif message.text == "/help" or message.text == "help":
 		bot.send_message(message.from_user.id, "1) /start - приветствие \n2) /stat - кс го статистика")
