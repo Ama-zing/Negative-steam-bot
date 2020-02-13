@@ -83,11 +83,11 @@ def magic(letter):
 		return 'Ƴ'							
 	else:
 		return letter	
-		
 
 def create_nickname(message):
 	chat_id = message.chat.id
 	current_nickname = message.text
+	final_nickname=''
 	nick_length=len(current_nickname)
 	for i in range(0,nick_length):
 		final_nickname=final_nickname+magic(current_nickname[i])
