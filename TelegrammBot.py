@@ -4,10 +4,6 @@ import telebot
 TOKEN = '986636286:AAGBmIYMoNmH_4VmWdNLHfBE42vi2VStaz4'
 bot = telebot.TeleBot('986636286:AAGBmIYMoNmH_4VmWdNLHfBE42vi2VStaz4')
 
-import logging
-logger = telebot.logger
-telebot.logger.setLevel(logging.DEBUG)
-
 @bot.message_handler(commands=['start', 'help'])
 def handle_text(message):
 	if message.text == "/start":
